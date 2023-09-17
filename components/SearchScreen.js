@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { getAllDonations } from '../database';
 
 function SearchScreen() {
   const [donations, setDonations] = React.useState([]);
 
-  // Simuleret data for donationer (erstat med din databaselogik)
-  const mockDonations = [
-    { id: '1', foodName: 'Æbler', expiryDate: '2023-10-15', quantity: '5' },
-    { id: '2', foodName: 'Brød', expiryDate: '2023-09-20', quantity: '2' },
-    // Tilføj flere donationer efter behov
-  ];
-
-  React.useEffect(() => {
-    // Hent donationer fra databasen eller en anden kilde
-    setDonations(mockDonations);
+  useEffect(() => {
+    // Hent alle donationer fra databasen ved indlæsning af skærmen
+    getAllDonations()
+      .then(data => {
+        setDonations(data);
+      })
+      .catch(error => {
+        console.error('Fejl ved hentning af donationer fra databasen: ', error);
+      });
   }, []);
 
   return (

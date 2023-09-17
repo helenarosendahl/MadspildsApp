@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { insertDonation } from '../database';
 
 function DonationScreen() {
   const [foodName, setFoodName] = React.useState('');
@@ -7,8 +8,20 @@ function DonationScreen() {
   const [quantity, setQuantity] = React.useState('');
 
   const handleDonation = () => {
-    // Implementer logik for at håndtere donation her
-    // Du kan gemme oplysninger i en database eller håndtere det på anden måde.
+    // Indsæt donation i databasen
+    insertDonation(foodName, expiryDate, parseInt(quantity, 10))
+      .then(() => {
+        // Succes: Data er blevet indsat
+        console.log('Donation er blevet indsat i databasen');
+        // Nulstil inputfelter
+        setFoodName('');
+        setExpiryDate('');
+        setQuantity('');
+      })
+      .catch(error => {
+        // Fejl ved indsættelse af data
+        console.error('Fejl ved indsættelse af donation i databasen: ', error);
+      });
   };
 
   return (
