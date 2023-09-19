@@ -17,6 +17,9 @@ function UserProfile() {
   const handleChangePassword = () => {
   
   };
+  const handleSupportCenter = () => {
+  
+  };
 
   const handleDeleteDonations = () => {
     deleteAllDonations()
@@ -33,7 +36,7 @@ function UserProfile() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Min Profil</Text>
+       <Text style = {styles.heading}>Min profil</Text>
       <Text>Brugernavn: {userData.username}</Text>
       <Text>E-mail: {userData.email}</Text>
 
@@ -41,9 +44,8 @@ function UserProfile() {
         <Button title="Rediger Profil" onPress={handleEditProfile} />
         <Button title="Skift Adgangskode" onPress={handleChangePassword} />
         <Button title="Slet alle dine donationer" onPress={handleDeleteDonations} />
+        <Button title="Supportcenter" onPress={handleSupportCenter} />
       </View>
-
-      {/* Tidligere donationer og anmodninger kan tilføjes her */}
     </View>
   );
 }
@@ -62,6 +64,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 20,
   },
+  heading: {
+    fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        color: 'black', 
+        textAlign: 'center', 
+  }
+  
 });
 
 export default UserProfile;
