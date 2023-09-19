@@ -6,8 +6,14 @@ function DonationScreen() {
   const [foodName, setFoodName] = React.useState('');
   const [expiryDate, setExpiryDate] = React.useState('');
   const [quantity, setQuantity] = React.useState('');
+  const [error, setError] = React.useState('');
 
   const handleDonation = () => {
+    if (!foodName || !expiryDate || !quantity) {
+      // Validering fejlede, mindst en af felterne er tomme
+      setError('Alle felter skal udfyldes');
+      return;
+    }
     // Indsæt donation i databasen
     insertDonation(foodName, expiryDate, parseInt(quantity, 10))
       .then(() => {
@@ -17,6 +23,7 @@ function DonationScreen() {
         setFoodName('');
         setExpiryDate('');
         setQuantity('');
+        setError('');
       })
       .catch(error => {
         // Fejl ved indsættelse af data
@@ -26,7 +33,8 @@ function DonationScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>Doner Mad</Text>
+      <Text style = {styles.heading}>Find Mad</Text>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
       <TextInput
         style={styles.input}
         placeholder="Fødevarenavn"
@@ -61,6 +69,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingHorizontal: 10,
   },
+  heading: {
+    fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        color: 'black', 
+        textAlign: 'center', 
+  }
 });
 
 export default DonationScreen;
