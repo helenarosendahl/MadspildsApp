@@ -18,10 +18,10 @@ function App() {
 
             if (route.name === 'Donation') {
               iconName = 'ios-add-circle-outline';
-            } else if (route.name === 'Search') {
+            } else if (route.name === 'Søg') {
               iconName = 'ios-search-outline';
             }
-            else if (route.name === 'UserProfile') {
+            else if (route.name === 'Mig') {
               iconName = 'ios-person-outline';
             }
 
@@ -38,8 +38,8 @@ function App() {
         })}
       >
         <Tab.Screen name="Donation" component={DonationScreen} />
-        <Tab.Screen name="Search" component={SearchScreen} />
-        <Tab.Screen name="UserProfile" component={UserProfile} />
+        <Tab.Screen name="Søg" component={SearchScreen} />
+        <Tab.Screen name="Mig" component={UserProfile} />
       </Tab.Navigator>
     </NavigationContainer>
   );
