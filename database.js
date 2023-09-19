@@ -12,6 +12,24 @@ db.transaction(tx => {
   );
 });
 
+// ...
+
+// Funktion til at slette alle donationer fra databasen
+export const deleteAllDonations = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(
+        'DELETE FROM donations',
+        [],
+        (_, result) => resolve(result),
+        (_, error) => reject(error)
+      );
+    });
+  });
+};
+
+// ...
+
 // Funktion til at indsætte en donation i databasen
 export const insertDonation = (foodName, expiryDate, quantity) => {
   return new Promise((resolve, reject) => {
