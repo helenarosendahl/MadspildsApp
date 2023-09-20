@@ -1,3 +1,4 @@
+// Importering af nødvendige moduler og komponenter
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { deleteAllDonations } from '../database'; 
@@ -21,6 +22,7 @@ function UserProfile() {
   
   };
 
+  // Funktion til at slette alle donationer
   const handleDeleteDonations = () => {
     deleteAllDonations()
       .then(() => {
@@ -37,10 +39,12 @@ function UserProfile() {
   return (
     <View style={styles.container}>
        <Text style = {styles.heading}>Min profil</Text>
+       {/* Brugernavn/email, som er gemt i userData-objektet.*/}
       <Text>Brugernavn: {userData.username}</Text>
       <Text>E-mail: {userData.email}</Text>
 
       <View style={styles.buttonContainer}>
+        {/* Knapper som kalder på funktionerne*/}
         <Button title="Rediger Profil" onPress={handleEditProfile} />
         <Button title="Skift Adgangskode" onPress={handleChangePassword} />
         <Button title="Slet alle dine donationer" onPress={handleDeleteDonations} />
@@ -50,6 +54,7 @@ function UserProfile() {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -74,4 +79,5 @@ const styles = StyleSheet.create({
   
 });
 
+// Eksporter komponenten så den kan bruges i App.js
 export default UserProfile;

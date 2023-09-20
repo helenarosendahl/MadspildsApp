@@ -1,3 +1,4 @@
+// Importering af nødvendige moduler og komponenter
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -37,6 +38,7 @@ function App() {
           ],
         })}
       >
+        {/* Definér skærme og tilknyttede komponenter */}
         <Tab.Screen name="Donation" component={DonationScreen} />
         <Tab.Screen name="Søg" component={SearchScreen} />
         <Tab.Screen name="Mig" component={UserProfile} />
