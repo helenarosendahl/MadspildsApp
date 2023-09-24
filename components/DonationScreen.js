@@ -39,7 +39,7 @@ function DonationScreen() {
     <View style={styles.container}>
 
       {/* Vis en overskriftstekst */}
-      <Text style = {styles.heading}>Find Mad</Text>
+      <Text style = {styles.heading}>Doner mad</Text>
       
       {/* Vis fejlmeddelelsestekst, hvis 'error'-variablen er sand, ellers vis ingenting */}
       {error ? <Text style={styles.error}>{error}</Text> : null}
