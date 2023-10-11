@@ -61,8 +61,7 @@ function SearchScreen() {
             <Text>Fødevarenavn: {item.foodName}</Text>
             <Text>Udløbsdato: {item.expiryDate}</Text>
             <Text>Mængde: {item.quantity}</Text>
-            <Text>Latitude: {item.latitude}</Text>
-            <Text>Longitude: {item.longitude}</Text>
+            
           </View>
         ))}
       </ScrollView>
@@ -78,6 +77,17 @@ function SearchScreen() {
             longitudeDelta: 0.0421,
           }}
         >
+
+          {/* Tilføj markør for brugerens placering */}
+          <Marker
+            coordinate={{
+              latitude: currentLocation.latitude,
+              longitude: currentLocation.longitude,
+            }}
+            title="Min placering"
+            pinColor="blue" // Justér farven efter ønske
+          />
+
           {/* Tilføj markører for donationer på kortet */}
           {donations.map((item) => (
             <Marker
