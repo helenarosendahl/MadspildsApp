@@ -8,17 +8,19 @@ function DonationScreen() {
   const [foodName, setFoodName] = React.useState('');
   const [expiryDate, setExpiryDate] = React.useState('');
   const [quantity, setQuantity] = React.useState('');
+  const [latitude, setLatitude] = React.useState('');
+  const [longitude, setLongitude] = React.useState('');
   const [error, setError] = React.useState('');
 
   const handleDonation = () => {
     // Tjek om nogle af de nødvendige felter er tomme
-    if (!foodName || !expiryDate || !quantity) {
+    if (!foodName || !expiryDate || !quantity || !latitude || !longitude) {
       // Validering fejlede, mindst en af felterne er tomme
       setError('Alle felter skal udfyldes');
       return;
     }
     // Indsæt donation i databasen
-    insertDonation(foodName, expiryDate, parseInt(quantity, 10))
+    insertDonation(foodName, expiryDate, parseInt(quantity, 10), parseFloat(latitude), parseFloat(longitude))
       .then(() => {
         // Succes: Data er blevet indsat
         console.log('Donation er blevet indsat i databasen');
@@ -26,6 +28,8 @@ function DonationScreen() {
         setFoodName('');
         setExpiryDate('');
         setQuantity('');
+        setLatitude('');
+        setLongitude('');
         setError('');
       })
       .catch(error => {
@@ -59,6 +63,16 @@ function DonationScreen() {
         placeholder="Mængde"
         onChangeText={text => setQuantity(text)} // Opdater 'quantity'-tilstanden med den indtastede tekst
       />
+      <TextInput
+      style={styles.input}
+      placeholder="Latitude"
+      onChangeText={text => setLatitude(text)}
+    />
+    <TextInput
+      style={styles.input}
+      placeholder="Longitude"
+      onChangeText={text => setLongitude(text)}
+    />
     {/* Opret en knap med teksten 'Doner', og når den trykkes, udfører den 'handleDonation'-funktionen */}
       <Button title="Doner" onPress={handleDonation} />
     </View>
