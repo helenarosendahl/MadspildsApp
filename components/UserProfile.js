@@ -1,7 +1,8 @@
 // Importering af nødvendige moduler og komponenter
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { deleteAllDonations } from '../database'; 
+import { GlobalStyles } from '../globalStyling/GlobalStyles'
 
 
 function UserProfile() {
@@ -37,47 +38,42 @@ function UserProfile() {
   
 
   return (
-    <View style={styles.container}>
-       <Text style = {styles.heading}>Min profil</Text>
-       {/* Brugernavn/email, som er gemt i userData-objektet.*/}
-      <Text>Brugernavn: {userData.username}</Text>
-      <Text>E-mail: {userData.email}</Text>
+    <View style={GlobalStyles.container}>
+      <Text style={GlobalStyles.heading}>Min profil</Text>
+      <View style={styles.userInfoContainer}>
+        <Text style={styles.userInfoText}>Brugernavn: {userData.username}</Text>
+        <Text style={styles.userInfoText}>E-mail: {userData.email}</Text>
+      </View>
 
-      <View style={styles.buttonContainer}>
-        {/* Knapper som kalder på funktionerne*/}
-        <Button title="Rediger Profil" onPress={handleEditProfile} />
-        <Button title="Skift Adgangskode" onPress={handleChangePassword} />
-        <Button title="Slet alle dine donationer" onPress={handleDeleteDonations} />
-        <Button title="Supportcenter" onPress={handleSupportCenter} />
+      <View style={GlobalStyles.buttonContainer}>
+        <TouchableOpacity onPress={handleEditProfile} style={[GlobalStyles.button, styles.button]}>
+          <Text style={GlobalStyles.buttonText}>Rediger Profil</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleChangePassword} style={[GlobalStyles.button, styles.button]}>
+          <Text style={GlobalStyles.buttonText}>Skift Adgangskode</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleDeleteDonations} style={[GlobalStyles.button, styles.button]}>
+          <Text style={GlobalStyles.buttonText}>Slet alle dine donationer</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleSupportCenter} style={[GlobalStyles.button, styles.button]}>
+          <Text style={GlobalStyles.buttonText}>Supportcenter</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
-
-// Styling
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  button: {
+    marginBottom: 15, // Juster denne margin efter behov
   },
-  heading: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
+  userInfoContainer: {
+    marginBottom: 20, // Juster denne margin efter behov for mere afstand
   },
-  buttonContainer: {
-    marginTop: 20,
+  userInfoText: {
+    fontSize: 16,
   },
-  heading: {
-    fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        color: 'black', 
-        textAlign: 'center', 
-  }
-  
 });
+
 
 // Eksporter komponenten så den kan bruges i App.js
 export default UserProfile;

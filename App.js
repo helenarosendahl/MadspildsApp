@@ -28,7 +28,7 @@ function App() {
 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: '#00563B',
           tabBarInactiveTintColor: 'gray',
           tabBarStyle: [
             {

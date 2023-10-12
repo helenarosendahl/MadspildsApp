@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, Button } from 'react-native';
+import React, { useEffect, useState,  } from 'react';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { getAllDonations } from '../database';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { GlobalStyles } from '../globalStyling/GlobalStyles'
 
 function SearchScreen() {
   // Opret state-variabler til at håndtere donationer, lokations-tilladelse og nuværende lokation
@@ -48,11 +49,13 @@ function SearchScreen() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={GlobalStyles.container}>
       {/* Overskrift */}
-      <Text style={styles.heading}>Find Mad</Text>
+      <Text style={GlobalStyles.heading}>Find Mad</Text>
       {/* Opdateringsknap */}
-      <Button title="Opdater" onPress={loadDonations} />
+      <TouchableOpacity style={GlobalStyles.button} onPress={loadDonations}>
+        <Text style={GlobalStyles.buttonText}>Opdater</Text>
+      </TouchableOpacity>
       {/* En rulleliste (ScrollView) til at vise donationer */}
       <ScrollView style={styles.scrollView}>
         {/* Mapper igennem hver donation i "donations" og genererer en visuel repræsentation for hver */}
