@@ -34,14 +34,21 @@ function SearchScreen() {
     <View style={GlobalStyles.container}>
       {/* Overskrift */}
       <Text style={GlobalStyles.heading}>Find Mad</Text>
+
+      {/* Buttons container */}
+      <View style={styles.buttonContainer}>
+
       {/* Opdateringsknap */}
-      <TouchableOpacity style={GlobalStyles.button} onPress={loadDonations}>
+      <TouchableOpacity style={[GlobalStyles.button, styles.buttonMargin]} onPress={loadDonations}>
         <Text style={GlobalStyles.buttonText}>Opdater</Text>
       </TouchableOpacity>
+
       {/* Maps knap */}
-      <TouchableOpacity style={GlobalStyles.button} onPress={handleMaps}>
+      <TouchableOpacity style={[GlobalStyles.button, styles.buttonMargin]} onPress={handleMaps}>
         <Text style={GlobalStyles.buttonText}>Kort</Text>
       </TouchableOpacity>
+      </View>
+
       {/* En rulleliste (ScrollView) til at vise donationer */}
       <ScrollView style={styles.scrollView}>
         {/* Mapper igennem hver donation i "donations" og genererer en visuel repræsentation for hver */}
@@ -84,6 +91,13 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     width: '80%',
+  },
+  buttonContainer: {
+    flexDirection: 'row', // Arrange buttons in a row
+    justifyContent: 'space-between', // Add space between buttons
+  },
+  buttonMargin: {
+    marginHorizontal: 10, // Add margin between buttons
   },
 });
 
