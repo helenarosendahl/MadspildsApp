@@ -98,26 +98,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  donationItem: {
-    backgroundColor: '#f2f2f2',
-    padding: 10,
-    marginVertical: 5,
-    borderRadius: 5,
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: 'black',
-    textAlign: 'center',
-  },
+  
   map: { // Tilpas dette efter dine ønskede kortstil
     width: '100%',
     height: '100%',
     marginVertical: 10,
-  },
-  scrollView: {
-    width: '80%',
   },
 });
 

@@ -1,8 +1,6 @@
 import React, { useEffect, useState,  } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { getAllDonations } from '../database';
-import MapView, { Marker } from 'react-native-maps';
-import * as Location from 'expo-location';
 import { GlobalStyles } from '../globalStyling/GlobalStyles'
 import { useNavigation } from '@react-navigation/native';
 

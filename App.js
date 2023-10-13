@@ -5,11 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DonationScreen from './components/DonationScreen';
-import SearchScreen from './components/SearchScreen';
-import UserProfile from './components/UserProfile';
-import SettingsScreen from './components/SettingsScreen';
 import SettingsStack from './components/SettingsStack';
-import MapsStack from './components/SearchStack';
 import SearchStack from './components/SearchStack';
 
 const Tab = createBottomTabNavigator();

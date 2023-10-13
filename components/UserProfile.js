@@ -2,7 +2,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { Ionicons } from 'react-native-vector-icons';
-import { deleteAllDonations } from '../database'; 
 import { GlobalStyles } from '../globalStyling/GlobalStyles'
 import { useNavigation } from '@react-navigation/native';
 
