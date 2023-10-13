@@ -9,6 +9,8 @@ import SearchScreen from './components/SearchScreen';
 import UserProfile from './components/UserProfile';
 import SettingsScreen from './components/SettingsScreen';
 import SettingsStack from './components/SettingsStack';
+import MapsStack from './components/SearchStack';
+import SearchStack from './components/SearchStack';
 
 const Tab = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
@@ -46,7 +48,7 @@ function App() {
       >
         {/* Definér skærme og tilknyttede komponenter */}
         <Tab.Screen name="Donation" component={DonationScreen} />
-        <Tab.Screen name="Søg" component={SearchScreen} />
+        <Tab.Screen name="Søg" component={SearchStack} />
         <Tab.Screen name="Mig" component={SettingsStack} />
         
       </Tab.Navigator>
