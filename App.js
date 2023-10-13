@@ -8,17 +8,12 @@ import DonationScreen from './components/DonationScreen';
 import SearchScreen from './components/SearchScreen';
 import UserProfile from './components/UserProfile';
 import SettingsScreen from './components/SettingsScreen';
+import SettingsStack from './components/SettingsStack';
 
 const Tab = createBottomTabNavigator();
-const SettingsStack = createStackNavigator();
+const StackNavigator = createStackNavigator();
 
-// Opret stakskærme til indstillinger
-const SettingsStackScreen = () => (
-  <SettingsStack.Navigator>
-    <SettingsStack.Screen name="SettingsScreen" component={SettingsScreen} />
-    {/* Tilføj flere indstillinger her efter behov */}
-  </SettingsStack.Navigator>
-);
+
 
 function App() {
   return (
@@ -52,8 +47,8 @@ function App() {
         {/* Definér skærme og tilknyttede komponenter */}
         <Tab.Screen name="Donation" component={DonationScreen} />
         <Tab.Screen name="Søg" component={SearchScreen} />
-        <Tab.Screen name="Mig" component={UserProfile} />
-        <Tab.Screen name="Indstillinger" component={SettingsStackScreen} />
+        <Tab.Screen name="Mig" component={SettingsStack} />
+        
       </Tab.Navigator>
     </NavigationContainer>
   );

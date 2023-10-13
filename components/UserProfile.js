@@ -72,3 +72,29 @@ const styles = StyleSheet.create({
 
 // Eksporter komponenten så den kan bruges i App.js
 export default UserProfile;
+
+/*
+export default function App() {
+  const Stack = createStackNavigator();
+  const Tab = createBottomTabNavigator();
+
+  const StackNavigation = () => {
+    return(
+        <Stack.Navigator>
+          <Stack.Screen name={'Indstillinger'} component={SettingsStackScreen}/>
+        </Stack.Navigator>
+    )
+  }
+
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name={'Donation'} component={DonationScreen} options={{tabBarIcon: () => ( <Ionicons name="ios-add-circle-outline" size={20} />),headerShown:null}}/>
+        <Tab.Screen name={'Søg'} component={SearchScreen} options={{tabBarIcon: () => ( <Ionicons name="ios-search-outline" size={20} />)}}/>
+        <Tab.Screen name={'Mig'} component={UserProfile} options={{tabBarIcon: () => ( <Ionicons name="ios-person-outline" size={20} />)}}/>
+
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
+*/
