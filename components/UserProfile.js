@@ -16,24 +16,11 @@ function UserProfile() {
   };
 
   const handleSupportCenter = () => {
-  
+    navigation.navigate('SupportScreen')
   };
 
   const handleSettings = () => {
   navigation.navigate('SettingsScreen')
-  };
-
-  // Funktion til at slette alle donationer
-  const handleDeleteDonations = () => {
-    deleteAllDonations()
-      .then(() => {
-        // Succes: Alle donationer er slettet
-        console.log('Alle donationer er slettet fra databasen');
-      })
-      .catch(error => {
-        // Fejl ved sletning af donationer
-        console.error('Fejl ved sletning af donationer fra databasen: ', error);
-      });
   };
   
 
