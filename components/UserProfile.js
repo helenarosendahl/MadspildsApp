@@ -26,27 +26,27 @@ function UserProfile() {
   
 
   return (
-    <View style={GlobalStyles.container}>
+    <View style={[GlobalStyles.container, GlobalStyles.settingscontainer]}>
 
-      <Text style={GlobalStyles.heading}>Min profil</Text>
+      <Text style={[GlobalStyles.heading, styles.centerText]}>Min profil</Text>
 
       <View style={styles.userInfoContainer}>
         <Text style={styles.userInfoText}>Brugernavn: {userData.username}</Text>
         <Text style={styles.userInfoText}>E-mail: {userData.email}</Text>
       </View>
 
-      <View style={GlobalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleSupportCenter} style={[GlobalStyles.button, styles.button]}>
-          <View style={styles.buttonContent}>
-            <Ionicons name="ios-help-circle" size={24} color="white" />
-            <Text style={GlobalStyles.buttonText}>Support center</Text>
+      <View style={[GlobalStyles.buttonContainer, styles.buttonContainer]}>
+        <TouchableOpacity onPress={handleSupportCenter} style={[GlobalStyles.set_button, styles.button]}>
+          <View style={GlobalStyles.buttonContent}>
+            <Ionicons name="help-circle-outline" size={24} color="#00563B" />
+            <Text style={GlobalStyles.set_buttonText}>Support center</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleSettings} style={[GlobalStyles.button, styles.button]}>
-          <View style={styles.buttonContent}>
-            <Ionicons name="ios-settings" size={24} color="white" />
-            <Text style={GlobalStyles.buttonText}>Indstillinger</Text>
+        <TouchableOpacity onPress={handleSettings} style={[GlobalStyles.set_button, styles.button]}>
+          <View style={GlobalStyles.buttonContent}>
+            <Ionicons name="settings-outline" size={24} color="#00563B" />
+            <Text style={GlobalStyles.set_buttonText}>Indstillinger</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -55,12 +55,11 @@ function UserProfile() {
   );
 }
 const styles = StyleSheet.create({
-  button: {
-    marginBottom: 15, // Juster denne margin efter behov
+  buttonContainer: {
+    marginLeft: 0, // Fjern venstremargin for at placere knapperne helt til venstre
   },
-  buttonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  centerText: {
+    textAlign: 'center', // Behold teksten i midten
   },
   userInfoContainer: {
     marginBottom: 20, // Juster denne margin efter behov for mere afstand
@@ -68,6 +67,10 @@ const styles = StyleSheet.create({
   userInfoText: {
     fontSize: 17,
   },
+  button: {
+    marginBottom: 15,
+  },
+  
 });
 
 

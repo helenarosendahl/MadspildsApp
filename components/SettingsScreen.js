@@ -2,17 +2,15 @@ import React from 'react';
 import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { GlobalStyles } from '../globalStyling/GlobalStyles'
 import { deleteAllDonations } from '../database';
+import { Ionicons } from 'react-native-vector-icons';
 
 const SettingsScreen = () => {
 
-    const handleEditProfile = () => {
+    const handleInformation = () => {
     
     };
   
-    const handleChangePassword = () => {
     
-    };
-
     const handleDeleteDonations = () => {
         deleteAllDonations()
           .then(() => {
@@ -27,19 +25,23 @@ const SettingsScreen = () => {
 
 
     return (
-        <View style={GlobalStyles.container}>
-    
+        <View style={[GlobalStyles.container, GlobalStyles.settingscontainer]}>
           <View style={GlobalStyles.buttonContainer}>
-            <TouchableOpacity onPress={handleEditProfile} style={[GlobalStyles.button, styles.button]}>
-              <Text style={GlobalStyles.buttonText}>Rediger Profil</Text>
+
+            <TouchableOpacity onPress={handleInformation} style={[GlobalStyles.set_button, styles.button]}>
+              <View style={GlobalStyles.buttonContent}>
+              <Ionicons name="person-outline" size={24} color="#00563B" />
+              <Text style={GlobalStyles.set_buttonText}>Kontooplysninger</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleChangePassword} style={[GlobalStyles.button, styles.button]}>
-              <Text style={GlobalStyles.buttonText}>Skift Adgangskode</Text>
-            </TouchableOpacity>
+           
 
-            <TouchableOpacity onPress={handleDeleteDonations} style={[GlobalStyles.button, styles.button]}>
-              <Text style={GlobalStyles.buttonText}>Slet alle dine donationer</Text>
+            <TouchableOpacity onPress={handleDeleteDonations} style={[GlobalStyles.set_button, styles.button]}>
+            <View style={GlobalStyles.buttonContent}>
+              <Ionicons name="trash-outline" size={24} color="#00563B" />
+              <Text style={GlobalStyles.set_buttonText}>Slet alle dine donationer</Text>
+              </View>
             </TouchableOpacity>
             
           </View>
@@ -50,12 +52,6 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
     button: {
       marginBottom: 15, // Juster denne margin efter behov
-    },
-    userInfoContainer: {
-      marginBottom: 20, // Juster denne margin efter behov for mere afstand
-    },
-    userInfoText: {
-      fontSize: 16,
     },
   });
 
