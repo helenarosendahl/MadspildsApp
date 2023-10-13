@@ -28,18 +28,20 @@ const SettingsScreen = () => {
 
     return (
         <View style={GlobalStyles.container}>
-          <Text style={GlobalStyles.heading}>Indstillinger</Text>
     
           <View style={GlobalStyles.buttonContainer}>
             <TouchableOpacity onPress={handleEditProfile} style={[GlobalStyles.button, styles.button]}>
               <Text style={GlobalStyles.buttonText}>Rediger Profil</Text>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={handleChangePassword} style={[GlobalStyles.button, styles.button]}>
               <Text style={GlobalStyles.buttonText}>Skift Adgangskode</Text>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={handleDeleteDonations} style={[GlobalStyles.button, styles.button]}>
               <Text style={GlobalStyles.buttonText}>Slet alle dine donationer</Text>
             </TouchableOpacity>
+            
           </View>
         </View>
       );

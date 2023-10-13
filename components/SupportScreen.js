@@ -9,14 +9,22 @@ const SupportScreen = () => {
     
     };
 
+    const handleMyOrder = () => {
+    
+    };
+
 
     return (
         <View style={GlobalStyles.container}>
-          <Text style={GlobalStyles.heading}>Support center</Text>
     
           <View style={GlobalStyles.buttonContainer}>
+            
             <TouchableOpacity onPress={handleSupport} style={[GlobalStyles.button, styles.button]}>
-              <Text style={GlobalStyles.buttonText}>Hvordan fungerer For Godt til Skrot?</Text>
+              <Text style={GlobalStyles.buttonText}>Sådan fungerer For Godt til Skrot</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleMyOrder} style={[GlobalStyles.button, styles.button]}>
+              <Text style={GlobalStyles.buttonText}>Min bestilling</Text>
             </TouchableOpacity>
             
           </View>
