@@ -2,12 +2,23 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DonationScreen from './components/DonationScreen';
 import SearchScreen from './components/SearchScreen';
 import UserProfile from './components/UserProfile';
+import SettingsScreen from './components/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
+const SettingsStack = createStackNavigator();
+
+// Opret stakskærme til indstillinger
+const SettingsStackScreen = () => (
+  <SettingsStack.Navigator>
+    <SettingsStack.Screen name="SettingsScreen" component={SettingsScreen} />
+    {/* Tilføj flere indstillinger her efter behov */}
+  </SettingsStack.Navigator>
+);
 
 function App() {
   return (
@@ -42,6 +53,7 @@ function App() {
         <Tab.Screen name="Donation" component={DonationScreen} />
         <Tab.Screen name="Søg" component={SearchScreen} />
         <Tab.Screen name="Mig" component={UserProfile} />
+        <Tab.Screen name="Indstillinger" component={SettingsStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

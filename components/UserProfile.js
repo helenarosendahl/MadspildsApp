@@ -3,24 +3,24 @@ import React from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { deleteAllDonations } from '../database'; 
 import { GlobalStyles } from '../globalStyling/GlobalStyles'
+import { useNavigation } from '@react-navigation/native';
 
 
 function UserProfile() {
+  const navigation = useNavigation();
+
   // Simuleret brugerdata
   const userData = {
     username: 'bruger123',
     email: 'bruger@example.com',
   };
 
-  const handleEditProfile = () => {
-    
-  };
-
-  const handleChangePassword = () => {
-  
-  };
   const handleSupportCenter = () => {
   
+  };
+
+  const handleSettings = () => {
+  navigation.navigate('SettingsScreen')
   };
 
   // Funktion til at slette alle donationer
@@ -46,18 +46,13 @@ function UserProfile() {
       </View>
 
       <View style={GlobalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleEditProfile} style={[GlobalStyles.button, styles.button]}>
-          <Text style={GlobalStyles.buttonText}>Rediger Profil</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleChangePassword} style={[GlobalStyles.button, styles.button]}>
-          <Text style={GlobalStyles.buttonText}>Skift Adgangskode</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleDeleteDonations} style={[GlobalStyles.button, styles.button]}>
-          <Text style={GlobalStyles.buttonText}>Slet alle dine donationer</Text>
-        </TouchableOpacity>
+        
         <TouchableOpacity onPress={handleSupportCenter} style={[GlobalStyles.button, styles.button]}>
           <Text style={GlobalStyles.buttonText}>Supportcenter</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={handleSettings} style={[GlobalStyles.button, styles.button]}>
+        <Text style={GlobalStyles.buttonText}>Indstillinger</Text>
+      </TouchableOpacity>
       </View>
     </View>
   );
@@ -70,7 +65,7 @@ const styles = StyleSheet.create({
     marginBottom: 20, // Juster denne margin efter behov for mere afstand
   },
   userInfoText: {
-    fontSize: 16,
+    fontSize: 17,
   },
 });
 
